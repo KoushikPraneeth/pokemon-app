@@ -47,9 +47,9 @@ const App = () => {
   );
 
   return (
-    <Box minH="100vh" bg="gray.50" display="flex" alignItems="center" justifyContent="center">
-      <Box width="100%" maxW="1280px" p={4}>
-        <VStack spacing={8} align="center" mb={8}>
+    <Box width="100%" minH="100vh" bg="gray.50" display="flex" justifyContent="center">
+      <Box width="100%" maxW="1280px" p={8}>
+        <VStack spacing={8} mb={8} align="center">
           <Heading>Pokemon Explorer</Heading>
           <Input
             placeholder="Search Pokemon..."
@@ -65,16 +65,18 @@ const App = () => {
             <Spinner size="xl" />
           </Center>
         ) : (
-          <SimpleGrid 
-            columns={{ base: 1, md: 2, lg: 3, xl: 4 }} 
-            spacing={6}
-            justifyItems="center"
-            alignItems="stretch"
-          >
-            {filteredPokemons.map((pokemon) => (
-              <PokemonCard key={pokemon.id} pokemon={pokemon} />
-            ))}
-          </SimpleGrid>
+          <Box width="100%" display="flex" justifyContent="center">
+            <SimpleGrid 
+              columns={{ base: 1, md: 2, lg: 3, xl: 4 }} 
+              spacing={8}
+              width="100%"
+              justifyItems="center"
+            >
+              {filteredPokemons.map((pokemon) => (
+                <PokemonCard key={pokemon.id} pokemon={pokemon} />
+              ))}
+            </SimpleGrid>
+          </Box>
         )}
       </Box>
     </Box>

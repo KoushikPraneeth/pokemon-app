@@ -29,7 +29,6 @@ const typeColors = {
 export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
   return (
     <Box
-      w="100%"
       maxW="300px"
       h="100%"
       borderWidth="1px"
