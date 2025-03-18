@@ -29,7 +29,9 @@ const typeColors = {
 export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
   return (
     <Box
-      maxW="sm"
+      w="100%"
+      maxW="300px"
+      h="100%"
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
@@ -37,8 +39,12 @@ export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
       bg="white"
       boxShadow="md"
       _hover={{ transform: "scale(1.02)", transition: "transform 0.2s" }}
+      mx="auto"
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
     >
-      <VStack spacing={3}>
+      <VStack spacing={3} h="100%" justify="space-between">
         <Image
           src={pokemon.sprites.other["official-artwork"].front_default}
           alt={pokemon.name}

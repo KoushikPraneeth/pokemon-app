@@ -48,30 +48,39 @@ function App() {
   );
 
   return (
-    <Container maxW="container.xl" py={8}>
-      <VStack spacing={8} mb={8}>
-        <Heading>Pokemon Explorer</Heading>
-        <Input
-          placeholder="Search Pokemon..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          maxW="400px"
-          size="lg"
-        />
-      </VStack>
+    <Box w="100%" display="flex" justifyContent="center">
+      <Container maxW="container.xl" py={8} px={4}>
+        <VStack spacing={8} mb={8} align="center" w="100%">
+          <Heading>Pokemon Explorer</Heading>
+          <Input
+            placeholder="Search Pokemon..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            maxW="400px"
+            size="lg"
+          />
+        </VStack>
 
-      {loading ? (
-        <Center h="50vh">
-          <Spinner size="xl" />
-        </Center>
-      ) : (
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
-          {filteredPokemons.map((pokemon) => (
-            <PokemonCard key={pokemon.id} pokemon={pokemon} />
-          ))}
-        </SimpleGrid>
-      )}
-    </Container>
+        {loading ? (
+          <Center h="50vh">
+            <Spinner size="xl" />
+          </Center>
+        ) : (
+          <SimpleGrid 
+            columns={{ base: 1, md: 2, lg: 3, xl: 4 }} 
+            spacing={6}
+            justifyItems="center"
+            alignItems="stretch"
+            w="100%"
+            mx="auto"
+          >
+            {filteredPokemons.map((pokemon) => (
+              <PokemonCard key={pokemon.id} pokemon={pokemon} />
+            ))}
+          </SimpleGrid>
+        )}
+      </Container>
+    </Box>
   );
 }
 
