@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
   Box,
-  Container,
   SimpleGrid,
   Input,
   VStack,
@@ -13,7 +12,7 @@ import axios from 'axios';
 import { PokemonCard } from './components/PokemonCard';
 import { Pokemon, PokemonListResponse } from './types/pokemon';
 
-function App() {
+const App = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
@@ -48,9 +47,9 @@ function App() {
   );
 
   return (
-    <Box w="100%" display="flex" justifyContent="center">
-      <Container maxW="container.xl" py={8} px={4}>
-        <VStack spacing={8} mb={8} align="center" w="100%">
+    <Box minH="100vh" bg="gray.50" display="flex" alignItems="center" justifyContent="center">
+      <Box width="100%" maxW="1280px" p={4}>
+        <VStack spacing={8} align="center" mb={8}>
           <Heading>Pokemon Explorer</Heading>
           <Input
             placeholder="Search Pokemon..."
@@ -71,17 +70,15 @@ function App() {
             spacing={6}
             justifyItems="center"
             alignItems="stretch"
-            w="100%"
-            mx="auto"
           >
             {filteredPokemons.map((pokemon) => (
               <PokemonCard key={pokemon.id} pokemon={pokemon} />
             ))}
           </SimpleGrid>
         )}
-      </Container>
+      </Box>
     </Box>
   );
-}
+};
 
 export default App;
